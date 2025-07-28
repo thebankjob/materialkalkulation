@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 
 type Material = {
   id: number;
@@ -13,9 +13,10 @@ const MaterialTable: React.FC = () => {
   const [materialien, setMaterialien] = useState<Material[]>([]);
 
   useEffect(() => {
-    axios.get("/api/materialien")
-      .then(res => setMaterialien(res.data))
-      .catch(err => console.error(err));
+    api
+      .get("/materialien")
+      .then((res) => setMaterialien(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
