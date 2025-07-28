@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Python caches and compiled files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# Environment files
+.env
+.env.*
+
+# Build directories
+build/
+dist/
+
+# Logs
+npm-debug.log*
+
+# Misc
+.DS_Store
