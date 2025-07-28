@@ -9,14 +9,14 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5555:5432"
 
   backend:
     build: ./backend
     environment:
       - DATABASE_URL=postgresql://materialuser:materialpass@db:5432/materialdb
     ports:
-      - "8000:8000"
+      - "8096:8000"
     depends_on:
       - db
 
