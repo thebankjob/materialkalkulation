@@ -1,6 +1,6 @@
 // Basisgerüst für die Material-Lieferant-Mapping Tabelle
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 
 type Mapping = {
   id: number;
@@ -15,9 +15,10 @@ const MaterialSupplierMapping: React.FC = () => {
   const [mappings, setMappings] = useState<Mapping[]>([]);
 
   useEffect(() => {
-    axios.get("/api/material_lieferant")
-      .then(res => setMappings(res.data))
-      .catch(err => console.error(err));
+    api
+      .get("/material_lieferant")
+      .then((res) => setMappings(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (

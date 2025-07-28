@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 
 type Supplier = {
   id: number;
@@ -11,9 +11,10 @@ const SupplierTable: React.FC = () => {
   const [lieferanten, setLieferanten] = useState<Supplier[]>([]);
 
   useEffect(() => {
-    axios.get("/api/lieferanten")
-      .then(res => setLieferanten(res.data))
-      .catch(err => console.error(err));
+    api
+      .get("/lieferanten")
+      .then((res) => setLieferanten(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (

@@ -4,9 +4,12 @@ FROM node:20
 
 WORKDIR /app
 
+# Set build-time environment variable for API URL
+ARG REACT_APP_API_URL=http://backend:8000
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+
 # Installiere Abhängigkeiten
 COPY package.json ./
-COPY package-lock.json ./
 RUN npm install
 
 # Kopiere den restlichen Frontend-Code
