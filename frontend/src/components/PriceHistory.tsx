@@ -1,6 +1,6 @@
 // Preis-Historie-Komponente (für ein Material-Lieferant-Mapping)
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 
 type Preis = {
   id: number;
@@ -16,9 +16,10 @@ const PriceHistory: React.FC<{ materialLieferantId: number }> = ({ materialLiefe
   const [preise, setPreise] = useState<Preis[]>([]);
 
   useEffect(() => {
-    axios.get(`/api/preise?material_lieferant_id=${materialLieferantId}`)
-      .then(res => setPreise(res.data))
-      .catch(err => console.error(err));
+    api
+      .get(`/preise?material_lieferant_id=${materialLieferantId}`)
+      .then((res) => setPreise(res.data))
+      .catch((err) => console.error(err));
   }, [materialLieferantId]);
 
   return (
