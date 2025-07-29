@@ -8,8 +8,8 @@ WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Kopiere den Backend-Code
-COPY ./app /app
+# Kopiere den Backend-Code samt Ordner
+COPY ./app /app/app
 
 # Exponiere Port (optional, für Info)
 EXPOSE 8000
